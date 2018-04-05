@@ -5,20 +5,21 @@ import React, { Component } from 'react';
 class SearchBar extends Component {
     constructor(props) {
         super(props);
-        this.state = { searchInput: '' };
+        this.state = { term: '' };
     }
 
-    handleInputChange(e) {
-        this.setState({ searchInput: e.target.value });
+    handleInputChange(term) {
+        this.setState({term});
+        this.props.onSearchTermChange(term);
     }
 
 
     render() {
         return (
-            <div>
+            <div className="search-bar">
                 <input
-                    value={this.state.searchInput}
-                    onChange={this.handleInputChange.bind(this)} />
+                    value={this.state.term}
+                    onChange={e=>this.handleInputChange(e.target.value)} />
             </div>
         );
     }
