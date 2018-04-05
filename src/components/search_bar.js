@@ -12,16 +12,18 @@ class SearchBar extends Component {
         this.setState({ searchInput: e.target.value });
     }
 
-    
+
     render() {
         return (
             <div>
-            <input onChange={this.handleInputChange.bind(this)} />
+                <input
+                    value={this.state.searchInput}
+                    onChange={this.handleInputChange.bind(this)} />
             </div>
         );
     }
 
-   
+
 }
 
 
